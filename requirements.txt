@@ -9,3 +9,4 @@ mysql-connector-python
 pytz
 python-multipart
 requests
+python-jose
