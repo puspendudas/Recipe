@@ -1,0 +1,5 @@
+recipevenv
+__pycache__
+.DS_Store
+.vsconfig
+.vercel
