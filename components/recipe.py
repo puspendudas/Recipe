@@ -12,7 +12,7 @@ def get_db():
         db.close()
 
 def show_all_recipe(db: Session = Depends(get_db)):
-    recipe = db.query(DbRecipe).all()
+    recipe = db.query(DbRecipe.rcp_id, DbRecipe.rcp_image_url, DbRecipe.rcp_name, DbRecipe.rcp_desc, DbUser.user_name).join(DbUser).all()
 
     if not recipe:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
