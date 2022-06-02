@@ -16,10 +16,10 @@ def get_db():
         db.close()
 
 
-@recipe.get('/recipe/', status_code=status.HTTP_201_CREATED)
-def all_recipe(db: Session = Depends(get_db), get_current_user: User = Depends(get_current_user)):
+@recipe.get('/recipe/', status_code=status.HTTP_200_OK)
+def all_recipe(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     return show_all_recipe(db)
 
-@recipe.get('/recipe/{id}', status_code=status.HTTP_201_CREATED)
-def all_recipe(id:int, db: Session = Depends(get_db), get_current_user: User = Depends(get_current_user)):
+@recipe.get('/recipe/{id}', status_code=status.HTTP_200_OK)
+def all_recipe(id:int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     return show_recipe(id,db)
